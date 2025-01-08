@@ -1,0 +1,27 @@
+#list {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+#orders {
+    margin-left: 120px;
+}
+
+#confirm {
+    float: right;
+    margin-left: 130px;
+    margin-right: 130px;
+}
+
+#empty {
+    margin-left: 130px;
+    margin-right: 130px;
+}
+
+#product {
+    margin-left: 120px;
+}
+
+#user {
+    margin-left: 120px;
+}
