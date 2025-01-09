@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div>
+    <div class="container">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
@@ -8,6 +8,8 @@
         @endif
         <h1>List of products</h1>
         @foreach ($products as $product)
+        <div class="grid gap-3">
+            <div class="p-2 g-col-6">
             <div class="card" id= "product" style="width: 18rem;">
                 <div class="card-body">
                     <h3 class="card-title">{{ $product->product_name }}</h3>
@@ -32,7 +34,8 @@
                     @endauth
                 </div>
             </div>
-            <br>
+            </div>
+        </div>
         @endforeach
     </div>
 @endsection

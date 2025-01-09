@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <div>
+        <div class="container">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
         @endif
-        <h1 style="margin-left: 120px;">Users</h1>
+        <h1>Users</h1>
         @forelse ($users as $user)
             <div id="user">
                 <ul class="list-group" style="width: 20rem;">
@@ -22,6 +22,7 @@
                     </li>
                 </ul>
             </div>
+            <br>
         @empty
             <div class="alert alert-danger" role="alert">
                 There are no pending orders

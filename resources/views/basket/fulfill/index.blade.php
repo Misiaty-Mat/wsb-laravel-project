@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <div>
+    <div class="container">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
         @endif
-        <h1 style="margin-left: 120px;">Pending orders</h1>
+        <h1>Pending orders</h1>
         @forelse ($baskets as $basket)
             <div id="list">
                 <ul class="list-group">
