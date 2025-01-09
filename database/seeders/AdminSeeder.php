@@ -13,19 +13,20 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        echo "Uruchamianie AdminSeeder\n";
-    
-        DB::table('users')->updateOrInsert(
-            ['email' => env('ADMIN_EMAIL', 'admin@email.com')],
-            [
+        // Sprawdzenie, czy administrator już istnieje
+        $exists = DB::table('users')->where('email', 'admin@email.com')->exists();
+
+        if (!$exists) {
+            DB::table('users')->insert([
                 'name' => 'Administrator',
+                'email' => 'admin@email.com',
                 'role' => 'admin',
-                'password' => Hash::make(env('ADMIN_PASSWORD', 'supersecurepassword')),
+                'password' => Hash::make('supersecurepassword'),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
-        );
-    
+            ]);
+        }
+
         echo "Admin user dodany\n";
     }
 }
