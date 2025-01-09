@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
-    <div>
+    <div class="container">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
         @endif
-        <h1 style="margin-left: 120px;">My basket</h1>
+        <h1>My basket</h1>
         <form action="{{ route('basket.confirm') }}" method="POST"
             onsubmit="return confirm('Do you want to confirm transaction?');">
             @csrf
             @method('PUT')
             @forelse ($baskets as $basket)
-                <div class="card" style="width: 95rem; margin-left: 120px; margin-right: 120px;">
+                <div class="card">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <h3>{{ $basket->product->product_name }}</h3>

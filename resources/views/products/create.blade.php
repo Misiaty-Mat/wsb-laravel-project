@@ -1,5 +1,11 @@
 @extends('layouts.app')
+<style>
+    .card {
+        text-align: center;
+    }
+</style>
 @section('content')
+    <div class="container">
     <h1>Create New Product</h1>
     <div class="card" style="width: 23rem;">
         <br>
@@ -38,4 +44,5 @@
         </form>
         <br>
     </div>
+</div>
 @endsection
