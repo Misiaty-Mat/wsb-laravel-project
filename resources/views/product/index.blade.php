@@ -8,9 +8,12 @@
         @endif
         <h1>List of products</h1>
         @foreach ($products as $product)
-            <div class="grid gap-3">
-                <div class="p-2 g-col-6">
-                    <div class="card" id= "product" style="width: 18rem;">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/4129/4129437.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                    <div class="col-md-8">
                         <div class="card-body">
                             <h3 class="card-title">{{ $product->product_name }}</h3>
                             <p class="card-text">Description: {{ $product->description }}</p>
@@ -51,8 +54,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
+        </div>
         @endforeach
     </div>
 @endsection
