@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string("role")->default("customer");
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('name'); // dodanie kolumny z nazwą
+            $table->string('email')->unique(); //dodanie kolumny z unikalnym mailem
+            $table->string("role")->default("customer"); //dodanie kolumn roli ktora domyslnie jest zawsze klientem
+            $table->timestamp('email_verified_at')->nullable(); //moment weryfikacji adresu mailowego
+            $table->string('password'); //haslo 
+            $table->string('address')->default(''); // Dodanie kolumny adres
+            $table->rememberToken(); // token zapamietaj mnie
+            $table->timestamps(); //dwie kolumy created i updated
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users'); 
     }
 };
