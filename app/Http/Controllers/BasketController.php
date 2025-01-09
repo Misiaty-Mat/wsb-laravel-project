@@ -76,7 +76,7 @@ class BasketController extends Controller
             $basket->save();
         }
 
-        return redirect()->route('products.index')->with('success', 'Thank you for your purchase');
+        return redirect()->route('product.index')->with('success', 'Thank you for your purchase');
     }
 
     public function destroy($productId)

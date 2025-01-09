@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-        <div class="container">
+    <div class="container">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
@@ -19,6 +19,23 @@
                             <option value="worker" {{ $user->role == 'worker' ? 'selected' : '' }}>Worker</option>
                             <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                         </select>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="btn-group">
+
+                            <form action="{{ route('user.edit', $user->id) }}" method="POST">
+                                @csrf
+                                @method('GET')
+                                <button type="submit" class="btn btn-primary me-2">Edit</button>
+                            </form>
+
+                            <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger me-2">Delete</button>
+                            </form>
+                        </div>
                     </li>
                 </ul>
             </div>

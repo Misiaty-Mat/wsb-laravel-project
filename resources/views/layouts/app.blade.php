@@ -60,7 +60,7 @@
                             @endif
                             @if (in_array(Auth::user()->role, ['admin', 'worker']))
                                 <li class="nav-item">
-                                    <a href="{{ route('products.create') }}" class="nav-link">New product</a>
+                                    <a href="{{ route('product.create') }}" class="nav-link">New product</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('basket.fulfillIndex') }}" class="nav-link">Pending orders</a>
@@ -73,7 +73,7 @@
                                 <a href="{{ route('basket.index') }}" class="nav-link">Basket</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('products.index') }}" class="nav-link">Products</a>
+                                <a href="{{ route('product.index') }}" class="nav-link">Products</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -82,6 +82,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id) }}">
+                                        {{ __('Edit profile') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
